@@ -1,0 +1,21 @@
+# .screenrc.d/core
+# Basic settings
+
+altscreen on
+autodetach on
+hardstatus on
+nethack on
+startup_message off
+term 'screen-256color'
+vbell off
+
+#defbce on
+defobuflimit 4096
+defscrollback 4096
+defshell 'bash'
+defutf8 on
+
+hardstatus alwayslastline
+caption splitonly
+
+# vim:syntax=screen

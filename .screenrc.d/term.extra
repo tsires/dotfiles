@@ -1,0 +1,26 @@
+# .screenrc.d/term.extra
+# Mystery Terminal settings
+
+# I forgot why I added some of these, and contradictions exist
+# Need to clean these up and split into independent components
+
+# xterm
+termcap xterm* hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+terminfo xterm* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+termcapinfo xterm* 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm* be
+
+# Function Keys?
+termcapinfo xterm* 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm* 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
+
+# Cursor Visibility?
+termcapinfo xterm* 'vi=\E[?25l:ve=\E[34h\E[?25h:vs=\E[34l'
+
+# other terminals
+termcapinfo hp700 'Z0=\E[?3h:Z1=\E[?3l:hs:ts=\E[62"p\E[0$~\E[2$~\E[1$}:fs=\E[0}\E[61"p:ds=\E[62"p\E[1$~\E[61"p:ic@'
+termcap vt100* ms:AL=\E[%dL:DL=\E[%dM:UP=\E[%dA:DO=\E[%dB:LE=\E[%dD:RI=\E[%dC
+terminfo vt100* ms:AL=\E[%p1%dL:DL=\E[%p1%dM:UP=\E[%p1%dA:DO=\E[%p1%dB:LE=\E[%p1%dD:RI=\E[%p1%dC
+termcapinfo linux C8
+
+# vim:syntax=screen

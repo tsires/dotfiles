@@ -1,0 +1,7 @@
+# ~/.screenrc.d/theme.lemonline
+# Lemon-Lime: Warm Green / White / Yellow
+
+hardstatus string '%{=b G} %H%{= g} %l %= %{= y}%-w%{=b W}%n %{-b}%t%{-}%{= y}%+w %= %{= g}%d %D %{=b G}%0C%a '
+caption string '%?%F%{=bu W}%:%{=u g}%? %3n %{-b i}%t%{-}%? %h%? %=%? (users: %u)%? '
+
+# vim:syntax=screen

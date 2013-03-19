@@ -1,0 +1,7 @@
+# .screenrc.d/core
+# Additional Settings for nested screen sessions
+
+hardstatus alwaysignore
+caption splitonly
+
+# vim:syntax=screen

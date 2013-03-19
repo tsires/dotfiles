@@ -1,0 +1,22 @@
+# .screenrc.d/keys
+# Keybindings
+
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind 'h' help		# from hardcopy
+bind 'f' fit		# from flow
+bind 'x' remove		# from lockscreen
+bind 'N' prev		# from number
+bind 'K' kill
+bind 'I' login on
+bind 'O' login off
+bind '}' history
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
+
+# vim:syntax=screen

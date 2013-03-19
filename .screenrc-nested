@@ -1,0 +1,6 @@
+# .screenrc-nested
+
+source '.screenrc'
+source '.screenrc.d/nested'
+
+# vim:syntax=screen

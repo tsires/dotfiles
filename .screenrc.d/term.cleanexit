@@ -1,0 +1,7 @@
+# .screenrc.d/term.cleanexit
+# Don't make a mess when detaching or exiting
+
+termcapinfo xterm* 'Z0=\E[?3h:Z1=\E[?3l'
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+# vim:syntax=screen

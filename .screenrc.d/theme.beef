@@ -1,0 +1,7 @@
+# ~/.screenrc.d/theme.beef
+# Noodlenode - Beef: Red / Pale Yellow / Warm White
+
+hardstatus string '%{=b R} %H%{= r} %l %= %{= w}%-w%{=b Y}%n %{-b i}%t%{-}%{= w}%+w %= %{= r}%d %D %{=b R}%0C%a '
+caption string '%?%F%{=bu Y}%:%{=u w}%? %3n %{-b i}%t%{-}%? %h%? %=%? (users: %u)%? '
+
+# vim:syntax=screen

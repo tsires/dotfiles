@@ -1,0 +1,10 @@
+# .screenrc
+
+source '.screenrc.d/core'
+source '.screenrc.d/keys'
+source '.screenrc.d/theme.lemonlime'
+source '.screenrc.d/term.title'
+source '.screenrc.d/term.cleanexit'
+
+# These need some cleanup
+#source '.screenrc.d/term.extra'

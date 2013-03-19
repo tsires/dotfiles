@@ -1,0 +1,10 @@
+# .screenrc.d/term.title
+# Terminal settings - Titles and Status Lines
+
+# Let windows set individual status lines (for %h in their captions)
+termcapinfo * '' 'hs:ds=\E_\E\\:fs=\E\\:ts=\E_'
+
+# status line in xterm title
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]2;screen\007'
+
+# vim:syntax=screen
