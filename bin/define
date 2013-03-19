@@ -1,0 +1,5 @@
+#!/bin/bash
+until [[ "$#" == "0" ]]; do
+	curl 'dict://dict.org/d:'${1/ /%20}
+	shift
+done
