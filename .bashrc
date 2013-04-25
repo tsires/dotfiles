@@ -39,6 +39,7 @@ export PROMPT_DIRTRIM=3
 
 # Environment Variables
 export EDITOR=vim
+export HISTCONTROL=erasedups:ignorespace
 
 # Bash Settings
 shopt -s globstar
