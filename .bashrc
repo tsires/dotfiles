@@ -39,9 +39,12 @@ export PROMPT_DIRTRIM=3
 
 # Environment Variables
 export EDITOR=vim
-export HISTCONTROL=erasedups:ignorespace
+export HISTCONTROL=ignoredups:ignorespace
+export HISTSIZE=2000
+export HISTFILESIZE=2000
 
 # Bash Settings
+shopt -s histappend
 shopt -s globstar
 shopt -s dotglob
 
