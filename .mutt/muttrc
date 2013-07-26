@@ -1,0 +1,21 @@
+set from = "tomsires@gmail.com"
+set realname = "Tom Sires"
+
+set mbox_type=Maildir
+set folder=$HOME/.mail/gmail-tomsires
+set spoolfile=+Inbox
+set mask="!^\\.[^.]"
+set record="+.Sent"
+set postponed="+.Drafts"
+mailboxes + "+.Sent" "+.Drafts" "+.Trash"
+
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+set mailcap_path="~/.mutt/mailcap"
+auto_view text/html
+
