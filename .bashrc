@@ -33,7 +33,7 @@ PS2='\[\e[0;1m\] >\[\e[0m\] '
 PS3='\[\e[0;1m\] >>\[\e[0m\] '
 PS4='\[\e[0;1m\] >>>\[\e[0m\] '
 
-unset COLORS C1 C2 C2 C3 DF
+unset COLORS C0 C1 C2 C3 DF
 export PS1 PS2 PS3 PS4
 export PROMPT_DIRTRIM=3
 
