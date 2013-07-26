@@ -3,7 +3,8 @@
 alignment bottom_right
 background yes
 border_width 1
-default_color lightgrey
+default_color CCCCCC
+color0 999999
 default_outline_color grey
 default_shade_color black
 double_buffer yes
