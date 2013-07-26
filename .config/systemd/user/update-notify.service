@@ -1,0 +1,7 @@
+[Unit]
+Description=Notify user about available updates via conky
+
+[Service]
+Type=oneshot
+ExecStart=/home/tom/bin/update-notify
+RemainAfterExit=no

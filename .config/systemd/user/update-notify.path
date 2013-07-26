@@ -1,0 +1,10 @@
+[Unit]
+Description=Notify user about available updates via conky
+
+[Path]
+PathChanged=/var/lib/pacman/local
+PathChanged=/var/lib/pacman/sync
+Unit=update-notify.service
+
+[Install]
+WantedBy=default.target

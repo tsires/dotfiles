@@ -16,7 +16,7 @@ draw_shades yes
 gap_x 20
 gap_y 20
 if_up_strictness link
-minimum_size 400
+minimum_size 400 600
 net_avg_samples 2
 no_buffers yes
 out_to_console no
@@ -27,6 +27,7 @@ own_window_colour 101010
 own_window_class Conky
 own_window_type desktop
 stippled_borders 0
+text_buffer_size 4096
 update_interval 0.5
 uppercase no
 use_spacer right
@@ -85,3 +86,5 @@ $color          ${upspeedgraph enp3s0}`
 $color          ${color0}Down:$color ${downspeed enp3s0} 
 $color          ${downspeedgraph enp3s0}
 ${endif}${endif}
+${execpi 2 cat ~/.update-notify/pending.list}
+

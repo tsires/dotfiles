@@ -1,0 +1,36 @@
+#!/bin/bash
+# update-notify - Create/Update a list of pending updates for conky to display
+# To minimize the work being done by conky, which updates every 500ms here,
+# generate a file that conky can simply cat and parse
+# TODO: Would checking for the existence of this file be faster for conky?
+#       If so, this could remove the file when no packages are available for update
+#       An empty file may be fine though (probably trivially cached most of the time)
+
+LOCKFILE=/var/lib/pacman/db.lck
+WORKDIR=~/.update-notify
+
+# Wait until pacman is finished whatever it's doing (this has the downside of delaying the visual update
+# This could possibly be fixed by splitting the service into 2 parts: refresh sync db, download packages
+# Could even give some visual indication of download progress?
+while [[ -e "${LOCKFILE}" ]]; do
+	sleep 1
+done
+
+mkdir -p "${WORKDIR}"
+exec 1>"${WORKDIR}/pending.list"
+
+# Only continue if we have packages to update
+package-query -Quq || exit
+
+# Technically, the look is inconsistent with the other sections: there is an extra blank line before
+# the package list begins.  This makes handling the single-package line case much simpler.
+cat <<'EOF'
+$color ___ ___          __       __
+$color|   Y   .-----.--|  .---.-|  |_.-----.-----.
+$color|.  |   |  _  |  _  |  _  |   _|  -__|__ --|
+$color|.  |   |   __|_____|___._|____|_____|_____|
+$color|:  1   |__|
+$color|::.. . |
+EOF
+package-query -Qu -f $'%n\t%l\t%V' | tee >(wc -l | sed 's/$/ package(s) ready for update/' >&2) | sed 's/^\([^[:space:]]\+\)\s\+\([^[:space:]]\+\)\s\+\([^[:space:]]\+\)$/${color}\1 ${color0}-${color} \2 ${color0}->${color} \3/; 1s/^.*$/$color`-------'\'' \0/; 2,$s/^.*$/$color          \0/;'
+
