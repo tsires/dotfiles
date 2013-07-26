@@ -61,8 +61,8 @@ $color|   _  \.-----|  |_.--.--.--.-----.----|  |--.
 $color|.  |   |  -__|   _|  |  |  |  _  |   _|    <
 $color|.  |   |_____|____|________|_____|__| |__|__|
 $color|:  |   |
-$color|::.|   | $color${wireless_essid wlan0} ${color0}- Quality:$color ${wireless_link_qual_perc wlan0}% ${wireless_link_bar 5 wlan0} 
-$color`--- ---' ${color0}Up:$color ${upspeed wlan0} 
-$color          ${upspeedgraph wlan0}
-$color          ${color0}Down:$color ${downspeed wlan0} 
-$color          ${downspeedgraph wlan0}
+$color|::.|   | $color${wireless_essid wlp2s0} ${color0}- Quality:$color ${wireless_link_qual_perc wlp2s0}% ${wireless_link_bar 5 wlp2s0} 
+$color`--- ---' ${color0}Up:$color ${upspeed wlp2s0} 
+$color          ${upspeedgraph wlp2s0}
+$color          ${color0}Down:$color ${downspeed wlp2s0} 
+$color          ${downspeedgraph wlp2s0}
