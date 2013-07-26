@@ -87,4 +87,27 @@ $color          ${color0}Down:$color ${downspeed enp3s0}
 $color          ${downspeedgraph enp3s0}
 ${endif}${endif}
 ${execpi 2 cat ~/.update-notify/pending.list}
+${if_match ${unseen_mails /home/tom/.mail/gmail-tomsires/Inbox 2} != 0}
+$color ___ ___       __ __ __
+$color|   Y   .---.-|__|  |  |--.-----.--.--.
+$color|.      |  _  |  |  |  _  |  _  |_   _|
+$color|. \_/  |___._|__|__|_____|_____|__.__|
+$color|:  |   |
+$color|::.|:. | ${color0}tomsires@gmail.com - ${color}${unseen_mails /home/tom/.mail/gmail-tomsires/Inbox 2}${color0} unread
+$color`--- ---'
+$color${texeci 5 frm -u /home/tom/.mail/gmail-tomsires/Inbox | sed 's/^/          /'}
+${if_match ${unseen_mails /home/tom/.mail/outlook-uno-tsires/Inbox 2} != 0}
+$color          ${color0}tsires@uno.edu - ${color}${unseen_mails /home/tom/.mail/outlook-uno-tsires/Inbox 2}${color0} unread
+
+$color${texeci 5 frm -u /home/tom/.mail/outlook-uno-tsires/Inbox | sed 's/^/          /'}
+${endif}${else}${if_match ${unseen_mails /home/tom/.mail/outlook-uno-tsires/Inbox 2} != 0}
+$color ___ ___       __ __ __
+$color|   Y   .---.-|__|  |  |--.-----.--.--.
+$color|.      |  _  |  |  |  _  |  _  |_   _|
+$color|. \_/  |___._|__|__|_____|_____|__.__|
+$color|:  |   |
+$color|::.|:. | ${color0}tsires@uno.edu - ${color}${unseen_mails /home/tom/.mail/outlook-uno-tsires/Inbox 2}${color0} unread
+$color`--- ---'
+$color${texeci 5 frm -u /home/tom/.mail/outlook-uno-tsires/Inbox | sed 's/^/          /'}
+${endif}${endif}
 
