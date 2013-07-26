@@ -15,6 +15,7 @@ draw_outline no
 draw_shades yes
 gap_x 20
 gap_y 20
+if_up_strictness up
 minimum_size 400
 net_avg_samples 2
 no_buffers yes
@@ -55,14 +56,35 @@ $color|:  1   |                     |_____|
 $color|::.. . | ${color0}/ $color${fs_used /}/${fs_size /} ${fs_bar 5 /}
 $color`-------' ${color0}v $color${fs_used /var/}/${fs_size /var/} ${fs_bar 5 /var/}
 $color          ${color0}~ $color${fs_used /home/}/${fs_size /home/} ${fs_bar 5 /home/}
-
+${if_up wlp2s0}
 $color ______        __                       __
 $color|   _  \.-----|  |_.--.--.--.-----.----|  |--.
 $color|.  |   |  -__|   _|  |  |  |  _  |   _|    <
 $color|.  |   |_____|____|________|_____|__| |__|__|
 $color|:  |   |
-$color|::.|   | $color${wireless_essid wlp2s0} ${color0}- Quality:$color ${wireless_link_qual_perc wlp2s0}% ${wireless_link_bar 5 wlp2s0} 
-$color`--- ---' ${color0}Up:$color ${upspeed wlp2s0} 
+$color|::.|   | ${color}${wireless_essid wlp2s0} ${color0}- Quality:$color ${wireless_link_qual_perc wlp2s0}% ${wireless_link_bar 5 wlp2s0} 
+$color`--- ---' ${color}${addr wlp2s0} 
+$color          ${color0}Up:$color ${upspeed wlp2s0} 
 $color          ${upspeedgraph wlp2s0}
 $color          ${color0}Down:$color ${downspeed wlp2s0} 
 $color          ${downspeedgraph wlp2s0}
+${if_up enp3s0}
+$color          ${color}Ethernet
+$color          ${color}${addr enp3s0} 
+$color          ${color0}Up:$color ${upspeed enp3s0} 
+$color          ${upspeedgraph enp3s0}
+$color          ${color0}Down:$color ${downspeed enp3s0} 
+$color          ${downspeedgraph enp3s0}
+${endif}${else}${if_up enp3s0}
+$color ______        __                       __
+$color|   _  \.-----|  |_.--.--.--.-----.----|  |--.
+$color|.  |   |  -__|   _|  |  |  |  _  |   _|    <
+$color|.  |   |_____|____|________|_____|__| |__|__|
+$color|:  |   |
+$color|::.|   | ${color}Ethernet
+$color`--- ---' ${color}${addr enp3s0} 
+$color          ${color0}Up:$color ${upspeed enp3s0} 
+$color          ${upspeedgraph enp3s0}
+$color          ${color0}Down:$color ${downspeed enp3s0} 
+$color          ${downspeedgraph enp3s0}
+${endif}${endif}
