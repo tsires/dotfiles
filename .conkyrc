@@ -56,6 +56,9 @@ $color|____   |____|_____|__| |___._|___  |_____|
 $color|:  1   |                     |_____|
 $color|::.. . | ${color0}/ $color${fs_used /}/${fs_size /} ${fs_bar 5 /}
 $color`-------' ${color0}v $color${fs_used /var/}/${fs_size /var/} ${fs_bar 5 /var/}
+${if_mounted /var/backup}\
+$color          ${color0}b $color${fs_used /var/backup/}/${fs_size /var/backup/} ${fs_bar 5 /var/backup/}
+$endif\
 $color          ${color0}~ $color${fs_used /home/}/${fs_size /home/} ${fs_bar 5 /home/}
 
 ${if_up wlp2s0}\
