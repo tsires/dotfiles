@@ -47,7 +47,7 @@ $color          ${color0}Battery:$color $battery ($battery_time) ${battery_bar 5
 $color          ${color0}CPU Usage:$color $cpu%
 $color          ${cpugraph}
 $color          ${color0}RAM Usage:$color $mem/$memmax ${color0}-$color $memperc%
-$color          ${color0}Processes:$color $processes  ${color0}Running:$color $running_processes
+$color          ${color0}Processes:$color $processes  ${color0}Load:$color $loadavg
 
 $color _______ __
 $color|   _   |  |_.-----.----.---.-.-----.-----.
