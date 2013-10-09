@@ -28,7 +28,7 @@ own_window_class Conky
 own_window_type desktop
 stippled_borders 0
 text_buffer_size 4096
-update_interval 0.5
+update_interval 3.0
 uppercase no
 use_spacer right
 use_xft no
