@@ -1,0 +1,36 @@
+#!/bin/sh
+# list-sockets - Generate a list of active sockets for conky to display
+# TODO: A bug in ss (UDP sockets listed as TCP) prevents consolidating a couple
+#       lines. Clean up once a version of ss is available that doesn't suffer
+#       from this bug.
+
+print_listening() {
+	ss -tnrp state listening | sed '1d; s/\s\+/\t/g; s/users:(("\([^"]*\)",\([0-9]\+\),[0-9]\+))/\1\t(\2)/; s/\t:::/\t*:/g; s/^\([^\t]*\t\)\{2\}\([^\t]\{,24\}\)[^\t]*:\([^\t]*\)\t[^\t]*\t\(\([^\t]*\)\t\([^\t]*\)\)\?$/$color          \5 ${color0}\6${tab 80}<-${color} \2${color0}:${color}\3/' | sort | uniq
+}
+print_established() {
+	ss -tnrp state big exclude listening not dst '::1:*' | sed '1d; s/\s\+/\t/g; s/users:(("\([^"]*\)",\([0-9]\+\),[0-9]\+))/\1\t(\2)/; s/^\([^\t]*\t\)\{4\}\([^\t]\{,24\}\)[^\t]*:\([^\t]*\)\t\(\([^\t]*\)\t\([^\t]*\)\)\?$/$color          \5 ${color0}\6${tab 80}->${color} \2${color0}:${color}\3/' | sort | uniq
+}
+print_udp() {
+	ss -unrp state unconnected | sed '1d; s/\s\+/\t/g; s/users:(("\([^"]*\)",\([0-9]\+\),[0-9]\+))/\1\t(\2)/; s/\t:::/\t*:/g; s/^\([^\t]*\t\)\{2\}\([^\t]\{,24\}\)[^\t]*:\([^\t]*\)\t[^\t]*\t\(\([^\t]*\)\t\([^\t]*\)\)\?$/$color          \5 ${color0}\6${tab 80}<-${color} \2${color0}:${color}\3${alignr}${color0}udp/' | sort | uniq
+	ss -unrp state established | sed '1d; s/\s\+/\t/g; s/users:(("\([^"]*\)",\([0-9]\+\),[0-9]\+))/\1\t(\2)/; s/^\([^\t]*\t\)\{3\}\([^\t]\{,24\}\)[^\t]*:\([^\t]*\)\t\(\([^\t]*\)\t\([^\t]*\)\)\?$/$color          \5 ${color0}\6${tab 80}->${color} \2${color0}:${color}\3${alignr}${color0}udp/' | sort | uniq
+}
+
+printf '$color          ${color0}Active Sockets\n\n'
+while [ "$#" -ne 0 ]; do
+	case "$1" in
+		-l|--listening)
+			print_listening
+			;;
+		-e|--established)
+			print_established
+			;;
+		-u|--udp)
+			print_udp
+			;;
+		*)
+			printf '%s: %s: Unknown option\n' "$0" "$1" >&2
+			exit 1
+			;;
+	esac
+	shift
+done
