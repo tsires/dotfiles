@@ -12,7 +12,7 @@ vbell off
 #defbce on
 defobuflimit 4096
 defscrollback 4096
-defshell 'bash'
+defshell 'zsh'
 defutf8 on
 
 hardstatus alwayslastline
