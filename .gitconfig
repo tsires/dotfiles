@@ -1,3 +1,5 @@
 [user]
 	email = tsires@uno.edu
 	name = Tom Sires
+[push]
+	default = simple
