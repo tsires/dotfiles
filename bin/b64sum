@@ -1,0 +1,10 @@
+#!/bin/bash
+# b64sum: print base64-encoded sha256 hash for a string from stdin
+if [ $# -ne 0 ]; then
+	# Use arguments instead of reading from stdin
+	exec <<<"$@"
+elif [ -t 0 ]; then
+	# Interactive mode: read one line and return
+	exec < <(head -n 1)
+fi
+openssl sha256 -binary | base64
